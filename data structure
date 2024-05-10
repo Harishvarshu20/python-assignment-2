@@ -1,0 +1,37 @@
+interface_data = {
+    'eth0': {'IP ADDRESS': '1.1.1.1', 'STATUS': 'up'},
+    'eth1': {'IP ADDRESS': '2.2.2.2', 'STATUS': 'up'},
+    'wlan0': {'IP ADDRESS': '3.3.3.3', 'STATUS': 'down'},
+    'wlan1': {'IP ADDRESS': '4.4.4.4', 'STATUS': 'up'}
+}
+def find_interface_status(interface_name):
+    if interface_name in interface_data:
+        return interface_data[interface_name]['STATUS']
+    else:
+        return "Interface not found"
+def find_up_interfaces():
+    up_interfaces = {}
+    for interface, data in interface_data.items():
+        if data['STATUS'] == 'up':
+            up_interfaces[interface] = data['IP ADDRESS']
+    return up_interfaces
+def add_new_entries(new_entries):
+    interface_data.update(new_entries)
+interface_name = input("Enter interface name to find its status: ")
+print("Status of", interface_name, ":", find_interface_status(interface_name))
+
+print("\nInterface and IP of all interfaces which are up:")
+up_interfaces = find_up_interfaces()
+for interface, ip_address in up_interfaces.items():
+    print("Interface:", interface, "| IP Address:", ip_address)
+
+# Add new entries
+new_entries = {
+    'eth2': {'IP ADDRESS': '5.5.5.5', 'STATUS': 'down'},
+    'wlan2': {'IP ADDRESS': '6.6.6.6', 'STATUS': 'up'}
+}
+add_new_entries(new_entries)
+
+print("\nUpdated Interface Data:")
+for interface, data in interface_data.items():
+    print("Interface:", interface, "| IP Address:", data['IP ADDRESS'], "| Status:", data['STATUS'])
