@@ -1,0 +1,20 @@
+prices = {
+    'apple': 2.5,
+    'banana': 1.0,
+    'milk': 3.0,
+    'bread': 2.0,
+    'eggs': 1.5
+}
+quantity_purchased = {
+    'apple': 3,
+    'banana': 2,
+    'milk': 1,
+    'bread': 2,
+    'eggs': 12
+}
+total_bill = 0
+for item, price in prices.items():
+    if item in quantity_purchased:
+        total_bill += prices[item] * quantity_purchased[item]
+
+print("Total Bill:", total_bill)
