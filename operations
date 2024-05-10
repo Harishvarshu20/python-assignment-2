@@ -1,0 +1,12 @@
+portfolio = {
+    'accounts': ['sbi', 'IOB'],
+    'shares': ['HDFC', 'ICCI', 'TM', 'TCS'],
+    'ornaments': ['10 gm gold', '1 kg silver']
+}
+portfolio['MF'] = ['Reliance', 'ABSL']
+portfolio['accounts'] = ['Axis', 'BOB']
+portfolio['shares'].sort()
+del portfolio['ornaments']
+print("Updated Portfolio:")
+for key, value in portfolio.items():
+    print(f"{key}: {value}")
