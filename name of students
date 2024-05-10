@@ -1,0 +1,37 @@
+def calculate_total_and_average(marks_dict):
+    for name, marks in marks_dict.items():
+        total_marks = sum(marks)
+        average_marks = total_marks / len(marks)
+        marks_dict[name] = (total_marks, average_marks)
+
+def find_topper(marks_dict):
+    max_average_marks = 0
+    topper = ""
+    for name, (total_marks, average_marks) in marks_dict.items():
+        if average_marks > max_average_marks:
+            max_average_marks = average_marks
+            topper = name
+    return topper
+
+def main():
+    # Sample dictionary containing student names and marks in three subjects
+    marks_dict = {
+        "Alice": [85, 90, 95],
+        "Bob": [75, 80, 85],
+        "Charlie": [90, 85, 80]
+    }
+
+    # Calculate total and average marks for each student
+    calculate_total_and_average(marks_dict)
+
+    # Find the topper of the class
+    topper = find_topper(marks_dict)
+
+    print("Updated Marks Dictionary:")
+    for name, (total_marks, average_marks) in marks_dict.items():
+        print(f"{name}: Total Marks = {total_marks}, Average Marks = {average_marks}")
+
+    print(f"\nThe topper of the class is: {topper}")
+
+if __name__ == "__main__":
+    main()
