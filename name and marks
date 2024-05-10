@@ -1,0 +1,13 @@
+marks = {
+    'Sundar': 85,
+    'Babu': 70,
+    'Chandhra': 90,
+    'Deepak': 75,
+    'Elangovan': 80
+}
+while marks:
+    last_pair = list(marks.keys())[-1]
+    print(f"{last_pair}: {marks[last_pair]}")
+    del marks[last_pair]
+
+print("Dictionary is now empty.")
